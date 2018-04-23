@@ -1,0 +1,32 @@
+.Header {
+  width: 60%;
+  margin: 16px auto;
+  /*border: 1px solid #eee;*/
+  box-shadow: 0px 2px 3px #ccc;
+  padding: 16px;
+  text-align: center;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.pages {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+  cursor: pointer;
+}
+
+.container {
+  width: 1024px;
+  margin:0px auto;
+}
+
+.pages:hover {
+  color: #800000;
+  text-decoration: underline;
+}

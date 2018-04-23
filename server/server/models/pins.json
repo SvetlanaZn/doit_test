@@ -1,0 +1,76 @@
+{
+  "name": "Pin",
+  "plural": "Pins",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [
+    "userId"
+  ],
+  "properties": {
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "type": "GeoPoint",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": ["findByUserId", "savePins"]
+    }
+  ],
+  "methods": {
+    "findByUserId": {
+      "accepts": [
+        {
+          "arg": "userId",
+          "type": "string",
+          "required": true,
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": {
+        "root": true
+      },
+      "http": {
+        "verb": "get"
+      }
+    },
+    "savePins": {
+      "accepts": [
+        {
+          "arg": "data",
+          "type": "object",
+          "required": true,
+          "http": {
+            "source": "body"
+          }
+        }
+      ],
+      "returns": {
+        "http": {
+          "verb": "post"
+        }
+      }
+    }
+  }
+}

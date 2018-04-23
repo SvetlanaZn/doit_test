@@ -1,0 +1,25 @@
+.elements {
+  display: inline-block;
+  text-align: center;
+  padding: 0 70px;
+  background: #FFFFE8;
+  box-shadow: #BEBEBE;
+}
+
+.center{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.sidebar-element {
+  cursor: pointer;
+  padding: 25px;
+  background: #FFFFE8;
+}
+
+.coordinates_bar {
+  margin-top: 50px;
+  background: #BEBEBE;
+  padding: 25px;
+}

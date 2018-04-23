@@ -1,0 +1,63 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db-mongo",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "create": true,
+          "login": true,
+          "logout": true
+        }
+      }
+    }
+  },
+  "AccessToken": {
+    "dataSource": "db-mongo",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db-mongo",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db-mongo",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db-mongo",
+    "public": false
+  },
+  "Pin": {
+    "dataSource": "db-mongo",
+    "public": true,
+    "options": {
+      "strictObjectIDCoercion": true,
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "savePins": true,
+          "findByUserId": true
+        }
+      }
+    }
+  }
+}
